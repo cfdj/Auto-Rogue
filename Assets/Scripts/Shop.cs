@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shop : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[CreateAssetMenu(fileName = "New Shop", menuName = "Shop")]
+public class Shop : ScriptableObject { 
+    public new string name;
+    public int level;
+    public int Tier;
+    public List<Item> inventory;
+    public List<Item> current;
 }
