@@ -7,4 +7,5 @@ public class Party : ScriptableObject
     public new string name;
     public List<Character> characters;
     public int coin;
+    public Inventory inventory;
 }
