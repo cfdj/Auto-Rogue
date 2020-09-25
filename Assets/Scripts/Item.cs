@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
 public class Item : ScriptableObject
 {
-    public static Stock stock; //holds the stock which this item is returned to on being consumed
+    public Stock stock; //holds the stock which this item is returned to on being consumed
     public Inventory inventory;
     public new string name;
     public int Health;

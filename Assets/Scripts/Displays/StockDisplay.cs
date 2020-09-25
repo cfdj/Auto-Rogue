@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StockDisplay : MonoBehaviour
 {
+    public Stock stock;
     // Start is called before the first frame update
     void Start()
     {

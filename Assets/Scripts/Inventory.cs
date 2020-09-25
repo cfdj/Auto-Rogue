@@ -10,6 +10,15 @@ public class Inventory : ScriptableObject
     public static Stock stock;
     private List<Item> items;
     
+    public bool Check(Item item)
+    {
+        if (items.Contains(item))
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void Add(Item item)
     {
 

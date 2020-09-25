@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93294bae365da1a4f880c351712c69cf, type: 3}
+  m_Name: Char2
+  m_EditorClassIdentifier: 
+  name: Erin
+  baseHealth: 0
+  baseAttack: 0
+  baseMana: 0
+  baseMagic: 0
+  totalHealth: 0
+  totalAttack: 0
+  totalMana: 0
+  totalMagic: 0
+  totalGains: 0
