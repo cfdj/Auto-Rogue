@@ -12,7 +12,7 @@ public class Item : ScriptableObject
     public int Mana;
     public int Magic;
     public int Tier;
-    public Sprite sprite;
+    public Texture2D sprite;
 
     public void init (Item itemA, Item itemB, Item itemC)
     {

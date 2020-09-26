@@ -6,18 +6,30 @@ using UnityEngine;
 public class InventoryDisplay : MonoBehaviour
 {
     public Inventory inventory;
+    public Stock stock;
+    public Shop shop;
     private List<Vector3> slotLocations;
 
     public Vector3 Buy(Item item)
     {
-        Vector3 pos = transform.position;
         inventory.Add(item);
+        shop.Buy(item);
+        Vector3 pos = slotLocations[inventory.numItems()-1];
         return pos;
     }
     // Start is called before the first frame update
     void Start()
     {
         slotLocations = new List<Vector3>();
+        slotLocations.Add(new Vector3(-68,45,0));
+        slotLocations.Add(new Vector3(0, 45, 0));
+        slotLocations.Add(new Vector3(-68, -5, 0));
+        slotLocations.Add(new Vector3(0, -5, 0));
+        slotLocations.Add(new Vector3(-68, -55, 0));
+        slotLocations.Add(new Vector3(0, -55, 0));
+        slotLocations.Add(new Vector3(-68, -105, 0));
+        slotLocations.Add(new Vector3(0, -105, 0));
+        inventory.Empty();
     }
 
     // Update is called once per frame

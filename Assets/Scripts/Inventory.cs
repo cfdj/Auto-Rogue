@@ -7,9 +7,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory")]
 public class Inventory : ScriptableObject
 {
-    public static Stock stock;
+    public Stock stock;
     private List<Item> items;
-    
+    public InventoryDisplay display;
     public bool Check(Item item)
     {
         if (items.Contains(item))
@@ -18,7 +18,10 @@ public class Inventory : ScriptableObject
         }
         return false;
     }
-
+    public int numItems()
+    {
+        return items.Count;
+    }
     public void Add(Item item)
     {
 
@@ -35,6 +38,14 @@ public class Inventory : ScriptableObject
     public void Remove(Item item)
     { 
         items.Remove(item);
+    }
+    public void Empty()
+    {
+        foreach(Item i in items)
+        {
+            stock.giveBack(i);
+        }
+        items.Clear();
     }
     public void GiveBack(Item item)
     {

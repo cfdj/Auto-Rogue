@@ -27,9 +27,9 @@ public class Character : ScriptableObject
     public void increaseStats (int[] stats) // health, attack, mana, magic
     {
         totalHealth += stats[0];
-        totalAttack += stats[0];
-        totalMana += stats[0];
-        totalMagic += stats[0];
+        totalAttack += stats[1];
+        totalMana += stats[2];
+        totalMagic += stats[3];
         totalGains += 1;
         curHealth = totalHealth;
         curAttack = totalAttack;

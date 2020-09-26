@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ItemDisplay : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     public Item item;
     public InventoryDisplay inventoryDisplay;
+    public RawImage image;
     public Vector3 returnPos; // this is the position the item returns to if it's dropped outside of a drop location
     public void OnDrag(PointerEventData eventData)
     {
@@ -34,19 +36,25 @@ public class ItemDisplay : MonoBehaviour, IDragHandler, IEndDragHandler
                 {
                     Debug.Log("Gave character item");
                     item.consume(c.character);
+                    Destroy(this.gameObject);
                 }
             }
         }
+        transform.localPosition = returnPos;
         
-        transform.position = returnPos;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         returnPos = transform.position;
+        inventoryDisplay = FindObjectOfType<InventoryDisplay>();
     }
-
+    public void setItem(Item i)
+    {
+        item = i;
+        image.texture = item.sprite;
+    }
     // Update is called once per frame
     void Update()
     {
