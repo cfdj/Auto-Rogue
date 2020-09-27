@@ -19,5 +19,5 @@ MonoBehaviour:
   Attack: 5
   Mana: 0
   Magic: 0
-  Tier: 0
+  Tier: 1
   sprite: {fileID: 2800000, guid: 4fe884d3bdbda244d840a3333d3e694a, type: 3}

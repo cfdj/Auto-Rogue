@@ -17,8 +17,8 @@ MonoBehaviour:
   baseAttack: 0
   baseMana: 0
   baseMagic: 0
-  totalHealth: 0
+  totalHealth: 5
   totalAttack: 5
   totalMana: 0
   totalMagic: 5
-  totalGains: 2
+  totalGains: 4

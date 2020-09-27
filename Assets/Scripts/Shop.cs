@@ -8,7 +8,7 @@ public class Shop : ScriptableObject {
     public int level;
     public int Tier;
     public Stock stock;
-    public List<Item> current;
+    public List<Item> current; //ideally this would be a set, however I would need to override items hashcode
     public ShopDisplay display;
 
     //refereshes the current stock of items, based on whats in the stock

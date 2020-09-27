@@ -39,14 +39,6 @@ public class ShopDisplay : MonoBehaviour
     public void Empty()
     {
         shop.Empty();
-        
-        if (currentItems != null)
-        {
-            foreach (ItemDisplay i in currentItems)
-            {
-                Destroy(i.gameObject);
-            }
-        }
         currentItems.Clear();
         numItems = 0;
     }

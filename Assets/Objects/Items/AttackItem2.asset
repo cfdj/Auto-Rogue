@@ -9,12 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b05bd5c73d03e154f8361a8e30a11542, type: 3}
-  m_Name: Shop
+  m_Script: {fileID: 11500000, guid: 0b89a59016d80e7458f14cf80ca66ac0, type: 3}
+  m_Name: AttackItem2
   m_EditorClassIdentifier: 
-  name: Shop
-  level: 5
-  Tier: 2
   stock: {fileID: 11400000, guid: 322f448bab0ad4b44a6be9fc17336bc7, type: 2}
-  current: []
-  display: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 4c427156c80580149a86220d1737c40f, type: 2}
+  name: Attack
+  Health: 0
+  Attack: 5
+  Mana: 0
+  Magic: 0
+  Tier: 1
+  sprite: {fileID: 2800000, guid: 4fe884d3bdbda244d840a3333d3e694a, type: 3}

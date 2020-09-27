@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.28502673, g: 0.37139347, b: 0.49600995, a: 1}
+  m_IndirectSpecularColor: {r: 0.2850269, g: 0.3713935, b: 0.49601045, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -207,6 +207,9 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: 4c427156c80580149a86220d1737c40f, type: 2}
   stock: {fileID: 11400000, guid: 322f448bab0ad4b44a6be9fc17336bc7, type: 2}
   shop: {fileID: 11400000, guid: 45d4d543a8f2c814ba0dd581dbfb4d40, type: 2}
+  itemPrefab: {fileID: 3032529522696571862, guid: ee0ee20fea490ef438adc8248c32175f,
+    type: 3}
+  canvas: {fileID: 59066056}
 --- !u!1 &59066053
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 5d2ecab2adf843b4d9d16c72619b6f3c, type: 2}
+  name: {fileID: 0}
 --- !u!1 &874676326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +1042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 65ff6a89077bca34384251985f9ac2fb, type: 2}
+  name: {fileID: 0}
 --- !u!1 &1284757564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,6 +1578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: d733193e22808bb4e8965163526aa74d, type: 2}
+  name: {fileID: 0}
 --- !u!1 &2097587779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,6 +1664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 971429f25c472c74d85364adc8474b07, type: 2}
+  name: {fileID: 0}
 --- !u!1 &2138677391
 GameObject:
   m_ObjectHideFlags: 0

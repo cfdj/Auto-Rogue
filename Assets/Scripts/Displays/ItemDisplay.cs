@@ -47,6 +47,7 @@ public class ItemDisplay : MonoBehaviour, IDragHandler, IEndDragHandler
     // Start is called before the first frame update
     void Start()
     {
+        item.display = this;
         returnPos = transform.position;
         inventoryDisplay = FindObjectOfType<InventoryDisplay>();
     }
