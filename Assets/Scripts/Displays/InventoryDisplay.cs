@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class InventoryDisplay : MonoBehaviour
 {
@@ -9,7 +9,8 @@ public class InventoryDisplay : MonoBehaviour
     public Stock stock;
     public Shop shop;
     private List<Vector3> slotLocations;
-
+    public ItemDisplay itemPrefab;
+    public Canvas canvas;
     public Vector3 Buy(Item item)
     {
         inventory.Add(item);
@@ -20,6 +21,7 @@ public class InventoryDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inventory.display = this;
         slotLocations = new List<Vector3>();
         slotLocations.Add(new Vector3(-68,45,0));
         slotLocations.Add(new Vector3(0, 45, 0));
@@ -32,9 +34,10 @@ public class InventoryDisplay : MonoBehaviour
         inventory.Empty();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Create(Item i)
     {
-        
+        ItemDisplay id=  Instantiate(itemPrefab, slotLocations[inventory.numItems()-1], Quaternion.identity);
+        id.gameObject.transform.SetParent(canvas.transform, false);
+        id.setItem(i);
     }
 }

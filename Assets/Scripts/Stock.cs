@@ -18,6 +18,10 @@ public class Stock : ScriptableObject
     }
     public void giveBack(Item giving)
     {
+        if(giving.display != null)
+        {
+            Destroy(giving.display.gameObject);
+        }
         inStock.Add(giving);
     }
     public List<Item> refresh(int tier, int num)
@@ -31,12 +35,25 @@ public class Stock : ScriptableObject
                 potential.Add(i);
             }
         }
-        while(newItems.Count < num && potential.Count >0)
+        if (num >= potential.Count)
         {
-            int choice = Random.Range(0, potential.Count);
-            newItems.Add(potential[choice]);
-            takeOut(potential[choice]);
-            potential.RemoveAt(choice);
+            foreach(Item i in potential)
+            {
+                newItems.Add(i);
+                takeOut(i);
+                
+            }
+            potential.Clear();
+        }
+        else
+        {
+            while (newItems.Count < num)
+            {
+                int choice = Random.Range(0, potential.Count);
+                newItems.Add(potential[choice]);
+                takeOut(potential[choice]);
+                potential.RemoveAt(choice);
+            }
         }
         return newItems;
     }

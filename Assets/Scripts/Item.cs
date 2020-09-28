@@ -6,6 +6,7 @@ public class Item : ScriptableObject
 {
     public Stock stock; //holds the stock which this item is returned to on being consumed
     public Inventory inventory;
+    public ItemDisplay display;
     public new string name;
     public int Health;
     public int Attack;
@@ -23,6 +24,8 @@ public class Item : ScriptableObject
         Tier = itemA.Tier + 1;
         name = itemC.name + Tier;
         sprite = itemC.sprite;
+        stock = itemA.stock;
+        inventory = itemA.inventory;
     }
     public void consume(Character character)
     {

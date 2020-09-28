@@ -27,7 +27,9 @@ public class Inventory : ScriptableObject
 
         if (TripleCheck(item))
         {
-            items.Add(Triple(item));
+            Item i = Triple(item);
+            items.Add(i);
+            display.Create(i);
         }
         else
         {
@@ -67,7 +69,7 @@ public class Inventory : ScriptableObject
         triple.init(same[0], same[1], item);
         GiveBack(same[0]);
         GiveBack(same[1]);
-        GiveBack(item);
+        GiveBack(item);     
         return triple;
     }
     private bool TripleCheck(Item item) //checks if 2 others of the same item exist in the inventory
