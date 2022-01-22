@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class CharacterDisplay : MonoBehaviour
 {
     public Character character;
-    public Text name;
-
+    public Text displayName;
+    public Text displayClass;
     // Start is called before the first frame update
     void Start()
     {
-        
+        displayName.text = character.name;
     }
 
     // Update is called once per frame

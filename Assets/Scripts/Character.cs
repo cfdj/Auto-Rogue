@@ -6,6 +6,7 @@ using UnityEngine;
 public class Character : ScriptableObject
 {
     public new string name;
+    public Archetype archetype;
     //these store a characters initial stat values without any upgrades
     public int baseHealth;
     public int baseAttack;
