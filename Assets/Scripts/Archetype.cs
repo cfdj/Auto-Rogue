@@ -17,10 +17,15 @@ public class Archetype : ScriptableObject
     [SerializeField] int attackMax;
     [SerializeField] int magicMax;
     
+    public int[] getRequirements()
+    {
+        int[] archetypeStats = { healthReq, manaReq, attackReq, magicReq};
+        return archetypeStats;
+    }
     public bool fitsRequirements(Character character)
     {
         int[] characterStats = { 0, 0, 0, 0 };
-        int lowestStat =
+        int[] archetypeStats = getRequirements();
         return false;
     }
     public void setArchetype(Character character)
