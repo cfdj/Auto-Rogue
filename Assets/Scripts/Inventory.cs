@@ -8,76 +8,80 @@ using UnityEngine;
 public class Inventory : ScriptableObject
 {
     public Stock stock;
-    private List<Item> items;
+    private List<ItemDisplay> currentItems;
     public InventoryDisplay display;
     public bool Check(Item item)
     {
-        if (items.Contains(item))
+        foreach (ItemDisplay i in currentItems)
         {
-            return true;
+            if (i.item == item)
+            {
+                return true;
+            }
         }
         return false;
     }
     public int numItems()
     {
-        return items.Count;
+        return currentItems.Count;
     }
-    public void Add(Item item)
+    public void Add(ItemDisplay newItem)
     {
 
-        if (TripleCheck(item))
+        if (TripleCheck(newItem))
         {
-            Item i = Triple(item);
-            items.Add(i);
-            display.Create(i);
+            Debug.Log("Tripling");
+            Triple(newItem);
+            currentItems.Add(newItem);
+
         }
         else
         {
-            items.Add(item); //adds after checking if it triples
-            item.inventory = this;
+            currentItems.Add(newItem); //adds after checking if it triples
         }
     }
-    public void Remove(Item item)
+    public void Remove(ItemDisplay item)
     { 
-        items.Remove(item);
+        currentItems.Remove(item);
+        Destroy(item.gameObject);
     }
     public void Empty()
     {
-        foreach(Item i in items)
+        foreach(ItemDisplay i in currentItems)
         {
-            stock.giveBack(i);
+            if (i != null)
+            {
+                stock.giveBack(i);
+            }
         }
-        items.Clear();
+        currentItems.Clear();
     }
-    public void GiveBack(Item item)
+    public void GiveBack(ItemDisplay item)
     {
         Remove(item);
         stock.giveBack(item);
     }
-    private Item Triple(Item item)
+    private ItemDisplay Triple(ItemDisplay item)
     {
-        Item triple;
-        List<Item> same = new List<Item>();
-        foreach(Item i in items)
+        List<ItemDisplay> same = new List<ItemDisplay>();
+        foreach(ItemDisplay i in currentItems)
         {
-            if (i == item)
+            if (i.item == item.item &&i.tier == item.tier)
             {
                 same.Add(i);
             }
         }
-        triple = CreateInstance<Item>();
-        triple.init(same[0], same[1], item);
+        item.Triple();
         GiveBack(same[0]);
-        GiveBack(same[1]);
-        GiveBack(item);     
-        return triple;
+        GiveBack(same[1]);     
+        return item;
     }
-    private bool TripleCheck(Item item) //checks if 2 others of the same item exist in the inventory
+    private bool TripleCheck(ItemDisplay item) //checks if 2 others of the same item exist in the inventory
     {
-        List<Item> same = new List<Item>();
-        foreach (Item i in items)
+        List<ItemDisplay> same = new List<ItemDisplay>();
+        foreach (ItemDisplay i in currentItems)
         {
-            if (i == item)
+            if (i.item == item.item && i.tier == item.tier)
             {
                 same.Add(i);
             }

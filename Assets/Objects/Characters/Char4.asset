@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93294bae365da1a4f880c351712c69cf, type: 3}
   m_Name: Char4
   m_EditorClassIdentifier: 
+  manager: {fileID: 11400000, guid: 1e9a1e9fa9c3b5f4787b231ee543b0be, type: 2}
   name: Tom
+  archetype: {fileID: 11400000, guid: 18e71eb5a2f19084ea1ac4d43bbca54c, type: 2}
   baseHealth: 0
   baseAttack: 0
   baseMana: 0
@@ -21,4 +23,4 @@ MonoBehaviour:
   totalAttack: 0
   totalMana: 0
   totalMagic: 0
-  totalGains: 0
+  totalGains: 1

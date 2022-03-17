@@ -10,6 +10,10 @@ public class ItemDisplay : MonoBehaviour, IDragHandler, IEndDragHandler
     public InventoryDisplay inventoryDisplay;
     public RawImage image;
     public Vector3 returnPos; // this is the position the item returns to if it's dropped outside of a drop location
+    public Outline outline;
+
+    int[] stats;
+    public int tier =0;
     public void OnDrag(PointerEventData eventData)
     {
         //blocksRaycasts = false;
@@ -25,7 +29,7 @@ public class ItemDisplay : MonoBehaviour, IDragHandler, IEndDragHandler
         if (RectTransformUtility.RectangleContainsScreenPoint(invPanel, Input.mousePosition))
         {
             Debug.Log("Drop item");
-            returnPos =inventoryDisplay.Buy(item);
+            returnPos =inventoryDisplay.Buy(this);
         }
         if (inventoryDisplay.inventory.Check(item)) //if the party has bought the item, check if they're giving it to a character
         {
@@ -35,26 +39,46 @@ public class ItemDisplay : MonoBehaviour, IDragHandler, IEndDragHandler
                 if(RectTransformUtility.RectangleContainsScreenPoint(charPanel, Input.mousePosition))
                 {
                     Debug.Log("Gave character item");
-                    item.consume(c.character);
-                    Destroy(this.gameObject);
+                    consume(c.character);
+                    c.updateText();
+                    inventoryDisplay.inventory.GiveBack(this);
+                    
                 }
             }
         }
         transform.localPosition = returnPos;
         
     }
+    private void consume(Character c)
+    {
+        c.increaseStats(stats);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        item.display = this;
         returnPos = transform.position;
         inventoryDisplay = FindObjectOfType<InventoryDisplay>();
+        outline = gameObject.GetComponent<Outline>();
+        outline.enabled = false;
     }
     public void setItem(Item i)
     {
         item = i;
         image.texture = item.sprite;
+        stats = item.getStats();
+    }
+    public void Triple()
+    {
+        for (int i = 0; i < 4; i++){
+            stats[i] = stats[i] * 3;
+        }
+        increaseTier();
+    }
+    public void increaseTier()
+    {
+        tier += 1;
+        outline.enabled = true;
     }
     // Update is called once per frame
     void Update()

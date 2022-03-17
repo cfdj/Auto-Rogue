@@ -8,28 +8,38 @@ public class Shop : ScriptableObject {
     public int level;
     public int Tier;
     public Stock stock;
-    public List<Item> current; //ideally this would be a set, however I would need to override items hashcode
+    private List<ItemDisplay> current; 
+    public List<Item> currentItems;
     public ShopDisplay display;
 
     //refereshes the current stock of items, based on whats in the stock
     public void reStock()
     {
-        current = stock.refresh(Tier, level);
+        currentItems =  stock.refresh(Tier, level);
     }
     public void Empty()
     {
-        foreach(Item i in current)
+        foreach(ItemDisplay i in current)
         {
-            stock.giveBack(i);
+            if (i != null)
+            {
+                stock.giveBack(i);
+                Destroy(i.gameObject);
+            }
         }
         current.Clear();
     }
-    public void Buy(Item item)
+    public void Buy(ItemDisplay item)
     {
         if (current.Contains(item))
         {
-            display.Buy(item);
+            display.Buy(item.item);
             current.Remove(item);
+            currentItems.Remove(item.item);
         }
+    }
+    public List<ItemDisplay> getCurrent()
+    {
+        return current;
     }
 }

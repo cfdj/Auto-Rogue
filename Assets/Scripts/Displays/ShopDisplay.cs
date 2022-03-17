@@ -29,7 +29,7 @@ public class ShopDisplay : MonoBehaviour
     {
         Empty();
         shop.reStock();
-        foreach(Item i in shop.current){
+        foreach(Item i in shop.currentItems){
             currentItems.Add(Instantiate(itemPrefab, slotLocations[numItems], Quaternion.identity));
             currentItems[numItems].gameObject.transform.SetParent(canvas.transform, false);
             currentItems[numItems].setItem(i);

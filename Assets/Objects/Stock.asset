@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: Stock
   m_EditorClassIdentifier: 
   inStock:
-  - {fileID: 11400000, guid: 78c70be435e25c8418b7d87ef2bbf493, type: 2}
   - {fileID: 11400000, guid: 252ae5c83bc5fd740b2d7d40c414e0e5, type: 2}
-  - {fileID: 11400000, guid: 3cffb614469b42848bf20a3d700d10c6, type: 2}
   - {fileID: 11400000, guid: 36f440034d11f514bbc9c95c5a63e7c6, type: 2}

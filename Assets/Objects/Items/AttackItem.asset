@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AttackItem
   m_EditorClassIdentifier: 
   stock: {fileID: 11400000, guid: 322f448bab0ad4b44a6be9fc17336bc7, type: 2}
-  inventory: {fileID: 11400000, guid: 4c427156c80580149a86220d1737c40f, type: 2}
+  inventory: {fileID: 11400000, guid: 472cc6e45a94996409c853c3abfe5196, type: 2}
   name: Attack
   Health: 0
   Attack: 5
@@ -21,3 +21,4 @@ MonoBehaviour:
   Magic: 0
   Tier: 1
   sprite: {fileID: 2800000, guid: 4fe884d3bdbda244d840a3333d3e694a, type: 3}
+  numInStock: 2

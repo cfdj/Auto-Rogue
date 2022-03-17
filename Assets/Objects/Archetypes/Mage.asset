@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3972010620c10d0448443bbd411aba4c, type: 3}
-  m_Name: Inventory
+  m_Script: {fileID: 11500000, guid: 3772af2d4466a7a4c8edb87be0945b82, type: 3}
+  m_Name: Mage
   m_EditorClassIdentifier: 
-  stock: {fileID: 11400000, guid: 322f448bab0ad4b44a6be9fc17336bc7, type: 2}
-  display: {fileID: 0}
+  name: Mage
+  maxRequirement: 1
+  healthReq: 0
+  manaReq: 0
+  attackReq: 0
+  magicReq: 1

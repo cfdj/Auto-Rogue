@@ -6,7 +6,6 @@ public class Item : ScriptableObject
 {
     public Stock stock; //holds the stock which this item is returned to on being consumed
     public Inventory inventory;
-    public ItemDisplay display;
     public new string name;
     public int Health;
     public int Attack;
@@ -14,26 +13,24 @@ public class Item : ScriptableObject
     public int Magic;
     public int Tier;
     public Texture2D sprite;
+    public int numInStock;
 
-    public void init (Item itemA, Item itemB, Item itemC)
+    public void init (Item itemA, Item itemB)
     {
-        Health = itemA.Health + itemB.Health;
-        Attack = itemA.Attack + itemB.Attack;
-        Mana = itemA.Mana + itemB.Mana;
-        Magic = itemA.Magic + itemA.Mana;
-        Tier = itemA.Tier + 1;
-        name = itemC.name + Tier;
-        sprite = itemC.sprite;
-        stock = itemA.stock;
-        inventory = itemA.inventory;
+        Health += itemA.Health + itemB.Health;
+        Attack += itemA.Attack + itemB.Attack;
+        Mana += itemA.Mana + itemB.Mana;
+        Magic += itemA.Magic + itemA.Mana;
+        Tier += itemA.Tier + 1;
+        name =name + Tier;
     }
-    public void consume(Character character)
+
+    public int[] getStats()
     {
-        int[] stats = { Health, Attack, Mana, Magic};
-        character.increaseStats(stats);
-        stock.giveBack(this);
-        inventory.Remove(this);
+        int[] stats = { Health, Attack, Mana, Magic };
+        return stats;
     }
+
     //checking if two items are equal for tripling
     public override bool Equals(object other)
     {

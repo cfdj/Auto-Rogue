@@ -8,40 +8,46 @@ using UnityEngine;
 public class Stock : ScriptableObject
 {
     public List<Item> inStock;
-    public Item takeOut(Item taking)
+    public bool takeOut(Item taking)
     {
-        if (inStock.Contains(taking))
+        if (taking.numInStock >0)
         {
-            inStock.Remove(taking);
+            taking.numInStock -= 1;
         }
-        return taking;
+        return true;
     }
-    public void giveBack(Item giving)
+    public void giveBack(ItemDisplay giving)
     {
-        if(giving.display != null)
+        if (giving.item != null)
         {
-            Destroy(giving.display.gameObject);
+            giving.item.numInStock += 1;
         }
-        inStock.Add(giving);
     }
     public List<Item> refresh(int tier, int num)
     {
         List<Item> newItems = new List<Item>();
         List<Item> potential = new List<Item>();
+        int totalStock = 0;
         foreach(Item i in inStock)
         {
-            if(i.Tier < tier)
+            if(i.Tier < tier && i.numInStock> 0)
             {
                 potential.Add(i);
             }
         }
-        if (num >= potential.Count)
+        foreach(Item i in potential)
+        {
+            totalStock += i.numInStock;
+        }
+        if (num >= totalStock)
         {
             foreach(Item i in potential)
             {
-                newItems.Add(i);
-                takeOut(i);
-                
+                while (i.numInStock > 0)
+                {
+                    newItems.Add(i);
+                    takeOut(i);
+                }
             }
             potential.Clear();
         }
@@ -52,7 +58,10 @@ public class Stock : ScriptableObject
                 int choice = Random.Range(0, potential.Count);
                 newItems.Add(potential[choice]);
                 takeOut(potential[choice]);
-                potential.RemoveAt(choice);
+                if (potential[choice].numInStock <= 0)
+                {
+                    potential.RemoveAt(choice);
+                }
             }
         }
         return newItems;

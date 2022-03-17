@@ -3,14 +3,8 @@ Characters gain a class upon hitting certain skill thresholds so its about build
 Items are then suited to particular characters so theres a strategy between going between the items you have and the stats you get
 
 
-Class differentiation probably needs some thought
+Class differentiation probably needs some thought, currently just based on highest. Maybe also number of gains?
 
-Mage: Magic atleast 2 higher than next highest stat
-SpellBlade: Magic and Attack equal and 2 higher than Health
-Guardian: Health highest and 2 higher than next highest stat
-Warrior: Attack and Health Highest
-Medic: attack below a triple's amount
-Archer: health below a triple's amount, attack above a triple's amount
 
 Adventurer: no stat more than 2 away from each other
 
@@ -20,3 +14,5 @@ Encounters, enemies and turns.
 Missions are made up of encounters which are made up of enemies.
 
 Enemies and characters attack each other, doing damage to the highest health of each first (unless something like archers changes targeting). Attacks are simultaneous
+
+Equipment: Class bound and can also be tripled

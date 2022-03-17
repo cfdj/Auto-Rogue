@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93294bae365da1a4f880c351712c69cf, type: 3}
   m_Name: Char1
   m_EditorClassIdentifier: 
-  name: Jon
+  manager: {fileID: 11400000, guid: 1e9a1e9fa9c3b5f4787b231ee543b0be, type: 2}
+  name: Ani
+  archetype: {fileID: 11400000, guid: 18e71eb5a2f19084ea1ac4d43bbca54c, type: 2}
   baseHealth: 0
   baseAttack: 0
   baseMana: 0
   baseMagic: 0
-  totalHealth: 5
-  totalAttack: 0
+  totalHealth: 0
+  totalAttack: 60
   totalMana: 0
-  totalMagic: 5
-  totalGains: 5
+  totalMagic: 0
+  totalGains: 9

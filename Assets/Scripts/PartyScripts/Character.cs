@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Character", menuName = "Character")]
 public class Character : ScriptableObject
 {
+    public ArchetypeManager manager;
     public new string name;
     public Archetype archetype;
     //these store a characters initial stat values without any upgrades
@@ -36,6 +37,15 @@ public class Character : ScriptableObject
         curAttack = totalAttack;
         curMana = totalMana;
         curMagic = totalMagic;
+        if (!archetype.fitsRequirements(this) || !archetype.maxRequirement)
+        {
+            //Debug.Log("Changing archetype");
+            manager.GetArchetype(this).setArchetype(this);
+        }
     }
-
+    public int[] getStats()
+    {
+        int[] stats = { totalHealth, totalMana, totalAttack, totalMagic };
+        return stats;
+    }
 }

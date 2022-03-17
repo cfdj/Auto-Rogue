@@ -12,11 +12,12 @@ public class CharacterDisplay : MonoBehaviour
     void Start()
     {
         displayName.text = character.name;
+        displayClass.text = character.archetype.name;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void updateText()
     {
-        
+        displayName.text = character.name;
+        displayClass.text = character.archetype.name;
     }
 }

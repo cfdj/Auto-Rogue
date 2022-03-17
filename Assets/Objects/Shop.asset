@@ -16,5 +16,8 @@ MonoBehaviour:
   level: 5
   Tier: 2
   stock: {fileID: 11400000, guid: 322f448bab0ad4b44a6be9fc17336bc7, type: 2}
-  current: []
+  currentItems:
+  - {fileID: 11400000, guid: 252ae5c83bc5fd740b2d7d40c414e0e5, type: 2}
+  - {fileID: 11400000, guid: 252ae5c83bc5fd740b2d7d40c414e0e5, type: 2}
+  - {fileID: 11400000, guid: 36f440034d11f514bbc9c95c5a63e7c6, type: 2}
   display: {fileID: 0}

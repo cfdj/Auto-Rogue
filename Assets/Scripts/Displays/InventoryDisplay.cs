@@ -11,7 +11,7 @@ public class InventoryDisplay : MonoBehaviour
     private List<Vector3> slotLocations;
     public ItemDisplay itemPrefab;
     public Canvas canvas;
-    public Vector3 Buy(Item item)
+    public Vector3 Buy(ItemDisplay item)
     {
         inventory.Add(item);
         shop.Buy(item);
@@ -34,10 +34,4 @@ public class InventoryDisplay : MonoBehaviour
         inventory.Empty();
     }
 
-    public void Create(Item i)
-    {
-        ItemDisplay id=  Instantiate(itemPrefab, slotLocations[inventory.numItems()-1], Quaternion.identity);
-        id.gameObject.transform.SetParent(canvas.transform, false);
-        id.setItem(i);
-    }
 }
