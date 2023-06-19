@@ -13,14 +13,22 @@ MonoBehaviour:
   m_Name: Char3
   m_EditorClassIdentifier: 
   manager: {fileID: 11400000, guid: 1e9a1e9fa9c3b5f4787b231ee543b0be, type: 2}
-  name: Sam
+  name: Yanfei
   archetype: {fileID: 11400000, guid: 18e71eb5a2f19084ea1ac4d43bbca54c, type: 2}
   baseHealth: 0
   baseAttack: 0
   baseMana: 0
   baseMagic: 0
-  totalHealth: 0
-  totalAttack: 0
+  totalHealth: 10
+  totalAttack: 2
   totalMana: 0
   totalMagic: 0
-  totalGains: 1
+  totalGains: 0
+  curHealth: 10
+  curAttack: 2
+  curMana: 0
+  curMagic: 0
+  weapon:
+    name: Fire Ball
+    icon: {fileID: 21300000, guid: 2ba33a1bd4b13384c8d3f3130e524a24, type: 3}
+    attackModifier: 0.5

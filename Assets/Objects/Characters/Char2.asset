@@ -13,14 +13,22 @@ MonoBehaviour:
   m_Name: Char2
   m_EditorClassIdentifier: 
   manager: {fileID: 11400000, guid: 1e9a1e9fa9c3b5f4787b231ee543b0be, type: 2}
-  name: Erin
+  name: Venti
   archetype: {fileID: 11400000, guid: 18e71eb5a2f19084ea1ac4d43bbca54c, type: 2}
   baseHealth: 0
   baseAttack: 0
   baseMana: 0
   baseMagic: 0
-  totalHealth: 20
-  totalAttack: 5
+  totalHealth: 10
+  totalAttack: 2
   totalMana: 0
   totalMagic: 0
-  totalGains: 6
+  totalGains: 0
+  curHealth: 40
+  curAttack: 2
+  curMana: 0
+  curMagic: 0
+  weapon:
+    name: Short Bow
+    icon: {fileID: 21300000, guid: 405cacb3db4a4464392f5f647bb6210e, type: 3}
+    attackModifier: 1

@@ -21,11 +21,8 @@ public class Character : ScriptableObject
     //the number of times this character has gained stats, it reduces future stat gains in a diminishing returns way. currently inactive
     public int totalGains;
     //these store the amount of each stat a character currently has for use in combat
-    private int curHealth;
-    private int curAttack;
-    private int curMana;
-    private int curMagic;
-
+    public int curHealth, curAttack, curMana, curMagic;
+    public Attack weapon;
     public void increaseStats (int[] stats) // health, attack, mana, magic
     {
         totalHealth += stats[0];
@@ -47,5 +44,12 @@ public class Character : ScriptableObject
     {
         int[] stats = { totalHealth, totalMana, totalAttack, totalMagic };
         return stats;
+    }
+    public void ReadyForAdventure()
+    {
+        curHealth = totalHealth;
+        curAttack = totalAttack;
+        curMana = totalMana;
+        curMagic = totalMagic;
     }
 }

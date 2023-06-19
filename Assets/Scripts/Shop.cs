@@ -8,7 +8,6 @@ public class Shop : ScriptableObject {
     public int level;
     public int Tier;
     public Stock stock;
-    private List<ItemDisplay> current; 
     public List<Item> currentItems;
     public ShopDisplay display;
 
@@ -17,18 +16,21 @@ public class Shop : ScriptableObject {
     {
         currentItems =  stock.refresh(Tier, level);
     }
+    /*
     public void Empty()
     {
         foreach(ItemDisplay i in current)
         {
             if (i != null)
             {
+                Debug.Log("Giving back: " + i.name);
                 stock.giveBack(i);
                 Destroy(i.gameObject);
             }
         }
         current.Clear();
     }
+    
     public void Buy(ItemDisplay item)
     {
         if (current.Contains(item))
@@ -42,4 +44,5 @@ public class Shop : ScriptableObject {
     {
         return current;
     }
+    */
 }

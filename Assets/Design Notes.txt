@@ -16,3 +16,15 @@ Missions are made up of encounters which are made up of enemies.
 Enemies and characters attack each other, doing damage to the highest health of each first (unless something like archers changes targeting). Attacks are simultaneous
 
 Equipment: Class bound and can also be tripled
+
+Adventures:
+	How do I communicate how difficult an adventure is?
+	Enemies
+
+How does magic and mana work?
+
+While a character has mana, they do damage to all enemies equal to their magic
+
+Enemies always attack the first character in the party first so you can have tanks
+
+Next: Party flow

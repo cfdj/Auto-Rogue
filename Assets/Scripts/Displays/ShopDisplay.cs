@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ShopDisplay : MonoBehaviour
 {
     public Shop shop;
@@ -10,20 +10,26 @@ public class ShopDisplay : MonoBehaviour
     List<ItemDisplay> currentItems;
     int numItems;
     public ItemDisplay itemPrefab;
+    public Image shopPanel;
     // Start is called before the first frame update
-    void Start()
+    private bool firstTime = true;
+    void Awake()
     {
-        numItems = 0;
-        shop.display = this;
-        currentItems = new List<ItemDisplay>();
-        slotLocations = new List<Vector3>();
-        slotLocations.Add(new Vector3(110, 0, 0));
-        slotLocations.Add(new Vector3(162, 0, 0));
-        slotLocations.Add(new Vector3(110, -54, 0));
-        slotLocations.Add(new Vector3(162, -54, 0));
-        slotLocations.Add(new Vector3(110, -108, 0));
-        slotLocations.Add(new Vector3(162, -108, 0));
-        Restock();
+        if (firstTime)
+        {
+            numItems = 0;
+            shop.display = this;
+            currentItems = new List<ItemDisplay>();
+            slotLocations = new List<Vector3>();
+            slotLocations.Add(new Vector3(110, 0, 0));
+            slotLocations.Add(new Vector3(162, 0, 0));
+            slotLocations.Add(new Vector3(110, -54, 0));
+            slotLocations.Add(new Vector3(162, -54, 0));
+            slotLocations.Add(new Vector3(110, -108, 0));
+            slotLocations.Add(new Vector3(162, -108, 0));
+            Restock();
+            firstTime = false;
+        }
     }
     public void Restock()
     {
@@ -31,14 +37,23 @@ public class ShopDisplay : MonoBehaviour
         shop.reStock();
         foreach(Item i in shop.currentItems){
             currentItems.Add(Instantiate(itemPrefab, slotLocations[numItems], Quaternion.identity));
-            currentItems[numItems].gameObject.transform.SetParent(canvas.transform, false);
+            currentItems[numItems].gameObject.transform.SetParent(shopPanel.transform, false);
+            currentItems[numItems].returnPos = slotLocations[numItems];
             currentItems[numItems].setItem(i);
             numItems += 1;
         }
     }
     public void Empty()
     {
-        shop.Empty();
+        foreach (ItemDisplay i in currentItems)
+        {
+            if (i != null)
+            {
+                Debug.Log("Giving back: " + i.name);
+                shop.stock.giveBack(i);
+                Destroy(i.gameObject);
+            }
+        }
         currentItems.Clear();
         numItems = 0;
     }

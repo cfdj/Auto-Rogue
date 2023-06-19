@@ -29,7 +29,8 @@ public class ItemDisplay : MonoBehaviour, IDragHandler, IEndDragHandler
         if (RectTransformUtility.RectangleContainsScreenPoint(invPanel, Input.mousePosition))
         {
             Debug.Log("Drop item");
-            returnPos =inventoryDisplay.Buy(this);
+            returnPos = inventoryDisplay.Buy(this);
+          
         }
         if (inventoryDisplay.inventory.Check(item)) //if the party has bought the item, check if they're giving it to a character
         {
@@ -47,6 +48,7 @@ public class ItemDisplay : MonoBehaviour, IDragHandler, IEndDragHandler
             }
         }
         transform.localPosition = returnPos;
+        Debug.Log(returnPos);
         
     }
     private void consume(Character c)
@@ -57,7 +59,7 @@ public class ItemDisplay : MonoBehaviour, IDragHandler, IEndDragHandler
     // Start is called before the first frame update
     void Start()
     {
-        returnPos = transform.position;
+        returnPos = transform.localPosition;
         inventoryDisplay = FindObjectOfType<InventoryDisplay>();
         outline = gameObject.GetComponent<Outline>();
         outline.enabled = false;

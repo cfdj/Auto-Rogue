@@ -7,14 +7,15 @@ public class InventoryDisplay : MonoBehaviour
 {
     public Inventory inventory;
     public Stock stock;
-    public Shop shop;
+    public ShopDisplay shopDisplay;
     private List<Vector3> slotLocations;
     public ItemDisplay itemPrefab;
     public Canvas canvas;
     public Vector3 Buy(ItemDisplay item)
     {
         inventory.Add(item);
-        shop.Buy(item);
+        shopDisplay.Buy(item.item);
+        //item.transform.SetParent(this.transform);
         Vector3 pos = slotLocations[inventory.numItems()-1];
         return pos;
     }

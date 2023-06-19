@@ -15,3 +15,5 @@ MonoBehaviour:
   inStock:
   - {fileID: 11400000, guid: 252ae5c83bc5fd740b2d7d40c414e0e5, type: 2}
   - {fileID: 11400000, guid: 36f440034d11f514bbc9c95c5a63e7c6, type: 2}
+  - {fileID: 11400000, guid: 3ac3eb29fafb0ef44b2f38721496216f, type: 2}
+  - {fileID: 11400000, guid: 2d14c67ff7e45cb42b945944c521ac83, type: 2}
