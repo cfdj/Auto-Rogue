@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*Used for temporarily holding enemy stats during encounters, so base stats aren't effected
+*/
 public class TempEnemy
 {
     public string name;

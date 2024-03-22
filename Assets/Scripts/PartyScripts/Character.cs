@@ -1,6 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*Character objects hold the stats of each adventure, which are then contained in partys
+ * They have base stats for setting inital values, and then track being leveled up by items
+ * They also track which Archetype and weapon they have
+ * Current (cur) values are used for temporary storage during adventures
+*/
 
 [CreateAssetMenu(fileName = "New Character", menuName = "Character")]
 public class Character : ScriptableObject

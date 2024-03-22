@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*Archetypes determine available weapons and attacks
+ * Characters fit archetypes by having their highest stats match those of the archetype
+*/
 [CreateAssetMenu(fileName = "New Archetype", menuName = "Archetype")]
 public class Archetype : ScriptableObject
 {

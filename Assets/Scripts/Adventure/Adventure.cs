@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*Adventures store encounters and handle combat between the party and the encounters, as well as rewards
+ * Displayed by AdventureDisplays
+ */
 [CreateAssetMenu(fileName = "New Adventure", menuName = "Adventure")]
 public class Adventure : ScriptableObject
 {
     public List<Encounter> encounters;
+    private int reward;
     private int progress = 0;
 
     public AdventureLog log;
@@ -13,6 +17,7 @@ public class Adventure : ScriptableObject
     private List<Character> characters;
     public void StartAdventure(List<Character> adventureCharacters)
     {
+        calculateReward();
         characters = adventureCharacters;
         foreach(Character c in characters)
         {
@@ -46,7 +51,22 @@ public class Adventure : ScriptableObject
             WinAdventure();
         }
     }
-
+    public int calculateReward()
+    {
+        reward = 0;
+        foreach(Encounter e in encounters)
+        {
+            foreach(Enemy x in e.FrontLineIn)
+            {
+                reward += x.reward;
+            }
+            foreach (Enemy x in e.BackLineIn)
+            {
+                reward += x.reward;
+            }
+        }
+        return reward;
+    }
     public void RunEncounter()
     {
         Encounter current = encounters[progress];
@@ -108,10 +128,14 @@ public class Adventure : ScriptableObject
     }
     public void WinAdventure()
     {
-        log.AddLog("Won Adventure!");
+        log.AddLog("Won Adventure! "+ reward + "G");
+        Wallet.wallet.giveMoney(reward);
+        AdventureDisplay.onAdventure = false;
     }
     public void LoseAdventure()
     {
-        log.AddLog("Lost Adventure!");
+        log.AddLog("Lost Adventure!" + reward/2 + "G");
+        Wallet.wallet.giveMoney(reward/2);
+        AdventureDisplay.onAdventure = false;
     }
 }

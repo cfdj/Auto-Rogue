@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: Char1
   m_EditorClassIdentifier: 
   manager: {fileID: 11400000, guid: 1e9a1e9fa9c3b5f4787b231ee543b0be, type: 2}
-  name: Ani
-  archetype: {fileID: 11400000, guid: d489129fc8d9f9f4faedd630e3db4332, type: 2}
+  name: Jon
+  archetype: {fileID: 11400000, guid: 18e71eb5a2f19084ea1ac4d43bbca54c, type: 2}
   baseHealth: 0
   baseAttack: 0
   baseMana: 0
   baseMagic: 0
   totalHealth: 5
-  totalAttack: 0
+  totalAttack: 5
   totalMana: 5
-  totalMagic: 10
-  totalGains: 3
-  curHealth: 5
-  curAttack: 0
+  totalMagic: 5
+  totalGains: 2
+  curHealth: 0
+  curAttack: 10
   curMana: 5
-  curMagic: 10
+  curMagic: 5
   weapon:
     name: Wooden Sword
     icon: {fileID: 21300000, guid: a1edd5e57febd7946a8ed0339767ea02, type: 3}

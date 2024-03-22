@@ -15,3 +15,4 @@ MonoBehaviour:
   health: 10
   Attack: 2
   icon: {fileID: 21300000, guid: 48a7b56b53919d640b899bc33d117307, type: 3}
+  reward: 6

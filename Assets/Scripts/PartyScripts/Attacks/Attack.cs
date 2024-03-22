@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*Base class for attacks
+ * Defines Name, Icon, and Modifier
+ * It also defines the default targeting behaviour of targeting the frontline first, backline if no front line is available
+*/
 [System.Serializable]
 public class Attack
 {

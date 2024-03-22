@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*Displays the contents of an inventory 
+ * As with  the shop, slot locations are currently hardcoded but should be updated to Gizmos
+*/
 public class InventoryDisplay : MonoBehaviour
 {
     public Inventory inventory;
@@ -13,13 +15,16 @@ public class InventoryDisplay : MonoBehaviour
     public Canvas canvas;
     public Vector3 Buy(ItemDisplay item)
     {
-        inventory.Add(item);
-        shopDisplay.Buy(item.item);
-        //item.transform.SetParent(this.transform);
-        Vector3 pos = slotLocations[inventory.numItems()-1];
-        return pos;
+        if (Wallet.wallet.checkMoney(item.item.price)) { 
+            inventory.Add(item);
+            shopDisplay.Buy(item.item);
+            //item.transform.SetParent(this.transform);
+            Vector3 pos = slotLocations[inventory.numItems() - 1];
+            return pos;
+        }
+        return item.returnPos;
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         inventory.display = this;

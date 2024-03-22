@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: Char4
   m_EditorClassIdentifier: 
   manager: {fileID: 11400000, guid: 1e9a1e9fa9c3b5f4787b231ee543b0be, type: 2}
-  name: Keqing
+  name: Sam
   archetype: {fileID: 11400000, guid: 18e71eb5a2f19084ea1ac4d43bbca54c, type: 2}
   baseHealth: 0
   baseAttack: 0
   baseMana: 0
   baseMagic: 0
-  totalHealth: 10
-  totalAttack: 2
-  totalMana: 0
-  totalMagic: 0
+  totalHealth: 5
+  totalAttack: 5
+  totalMana: 5
+  totalMagic: 5
   totalGains: 0
-  curHealth: 40
-  curAttack: 2
-  curMana: 0
-  curMagic: 0
+  curHealth: -1
+  curAttack: 5
+  curMana: 5
+  curMagic: 5
   weapon:
     name: Wooden Sword
     icon: {fileID: 21300000, guid: a1edd5e57febd7946a8ed0339767ea02, type: 3}

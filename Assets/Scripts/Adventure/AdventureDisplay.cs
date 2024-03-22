@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+/* Handles displaying an Adventure by showing its relevant encounters
+ * Also takes input for choosing said adventure
+ */
 public class AdventureDisplay : MonoBehaviour
 {
     public Text adventureName;
@@ -11,8 +15,10 @@ public class AdventureDisplay : MonoBehaviour
 
     public List<Line> Lines;
     public List<EncounterDisplay> encounterDisplays;
-
+    public Text goldDisplay;
     public Button thisAdventureButton;
+
+    public static bool onAdventure = false;
     void Awake()
     {
         foreach(Line l in Lines)
@@ -29,6 +35,7 @@ public class AdventureDisplay : MonoBehaviour
     {
         adventure = newAdventure;
         adventureName.text = adventure.name;
+        goldDisplay.text = "" + adventure.calculateReward();
         for(int i = 0; i< adventure.encounters.Count; i++)
         {
             encounterDisplays[i].SetEncounter(adventure.encounters[i]);
@@ -36,9 +43,13 @@ public class AdventureDisplay : MonoBehaviour
     }
     public void OnClick()
     {
-        adventure.log = log;
-        log.ClearLog();
-        thisAdventureButton.interactable = false;
-        adventure.StartAdventure(characters);
+        if (onAdventure == false)
+        {
+            adventure.log = log;
+            log.ClearLog();
+            onAdventure = true;
+            adventure.StartAdventure(characters);
+        }
     }
+
 }

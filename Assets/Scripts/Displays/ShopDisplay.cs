@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+/*Handles Displaying the shop
+ *Next thing for improvement is making slot locations not hard coded but instead determined by Gizmos to help with multi-resolution flexibility
+*/
 public class ShopDisplay : MonoBehaviour
 {
     public Shop shop;
@@ -11,8 +14,9 @@ public class ShopDisplay : MonoBehaviour
     int numItems;
     public ItemDisplay itemPrefab;
     public Image shopPanel;
-    // Start is called before the first frame update
     private bool firstTime = true;
+
+    public Text restockLabel;
     void Awake()
     {
         if (firstTime)
@@ -21,15 +25,16 @@ public class ShopDisplay : MonoBehaviour
             shop.display = this;
             currentItems = new List<ItemDisplay>();
             slotLocations = new List<Vector3>();
-            slotLocations.Add(new Vector3(110, 0, 0));
-            slotLocations.Add(new Vector3(162, 0, 0));
-            slotLocations.Add(new Vector3(110, -54, 0));
-            slotLocations.Add(new Vector3(162, -54, 0));
-            slotLocations.Add(new Vector3(110, -108, 0));
-            slotLocations.Add(new Vector3(162, -108, 0));
+            slotLocations.Add(new Vector3(110, 25, 0));//Changing this
+            slotLocations.Add(new Vector3(162, 25, 0));
+            slotLocations.Add(new Vector3(110, -29, 0));
+            slotLocations.Add(new Vector3(162, -29, 0));
+            slotLocations.Add(new Vector3(110, -83, 0));
+            slotLocations.Add(new Vector3(162, -83, 0));
             Restock();
             firstTime = false;
         }
+        restockLabel.text = "Restock:" + shop.restockCost + "G";
     }
     public void Restock()
     {
@@ -41,6 +46,14 @@ public class ShopDisplay : MonoBehaviour
             currentItems[numItems].returnPos = slotLocations[numItems];
             currentItems[numItems].setItem(i);
             numItems += 1;
+        }
+    }
+    //so restocking for free is different to restocking in play
+    public void payRestock()
+    {
+        if (Wallet.wallet.checkMoney(shop.restockCost)){
+            Wallet.wallet.spendMoney(shop.restockCost);
+            Restock();
         }
     }
     public void Empty()
@@ -59,17 +72,21 @@ public class ShopDisplay : MonoBehaviour
     }
     public void Buy(Item item)
     {
-        ItemDisplay buying = null;
-        foreach (ItemDisplay i in currentItems)
+        if (Wallet.wallet.checkMoney(item.price))
         {
-            if (i.item == item)
+            Wallet.wallet.spendMoney(item.price);
+            ItemDisplay buying = null;
+            foreach (ItemDisplay i in currentItems)
             {
-                buying = i;
+                if (i.item == item)
+                {
+                    buying = i;
+                }
             }
-        }
-        if (buying != null)
-        {
-            currentItems.Remove(buying);
+            if (buying != null)
+            {
+                currentItems.Remove(buying);
+            }
         }
     }
 }

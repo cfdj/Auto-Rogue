@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//holds a list of all items which can be added to the stock, once they're used they return to the stock
+//holds a list of all items which can be added to the shop, once they're used they return to the stock
 [CreateAssetMenu(fileName = "New Stock", menuName = "Stock")]
 public class Stock : ScriptableObject
 {

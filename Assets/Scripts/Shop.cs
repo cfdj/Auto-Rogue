@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*Tracks items that can be bought from the shop, as well as the shop's tier
+ * Tier and Level are used when getting items from a stock, more items if its higher level and higher tier items based on shop tier
+ */
 [CreateAssetMenu(fileName = "New Shop", menuName = "Shop")]
 public class Shop : ScriptableObject { 
     public new string name;
@@ -10,7 +13,7 @@ public class Shop : ScriptableObject {
     public Stock stock;
     public List<Item> currentItems;
     public ShopDisplay display;
-
+    public int restockCost;
     //refereshes the current stock of items, based on whats in the stock
     public void reStock()
     {

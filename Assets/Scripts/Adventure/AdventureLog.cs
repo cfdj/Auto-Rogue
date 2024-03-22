@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+/*Adventure logs display the party's progress through an adventure
+ * Coroutines are used to slow this displaying down so it happens over time
+ */
 public class AdventureLog : MonoBehaviour
 {
     public List<Text> texts;

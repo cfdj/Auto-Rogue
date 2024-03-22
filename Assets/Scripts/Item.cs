@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/* Items are bought from the shop and used to level up adventurer
+ * Items are currently built so that in theory they can add any stats in any combination
+ */
 [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
 public class Item : ScriptableObject
 {
@@ -14,7 +17,7 @@ public class Item : ScriptableObject
     public int Tier;
     public Texture2D sprite;
     public int numInStock;
-
+    public int price = 5;
     public void init (Item itemA, Item itemB)
     {
         Health += itemA.Health + itemB.Health;

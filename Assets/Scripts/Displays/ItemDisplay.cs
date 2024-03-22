@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+/* Displays Items in the UI
+ * Drag and Droppable onto Characters, Inventories and Shops
+ * If dropped in an invalid location, will snap back
+ */
 public class ItemDisplay : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     public Item item;

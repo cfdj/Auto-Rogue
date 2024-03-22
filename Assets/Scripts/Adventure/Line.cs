@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+/* Shows Front and Back line enemy sprites in Encounters
+*/
 public class Line : MonoBehaviour
 {
     public List<Image> icons;

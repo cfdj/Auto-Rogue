@@ -18,3 +18,4 @@ MonoBehaviour:
   stock: {fileID: 11400000, guid: 322f448bab0ad4b44a6be9fc17336bc7, type: 2}
   currentItems: []
   display: {fileID: 0}
+  restockCost: 2

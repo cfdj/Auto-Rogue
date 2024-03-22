@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*Encounters contain enemies, sorted into front and backline for targeting purposes
+ * They can take damage, which is distributed based on where the differen enemies are
+*/
 [CreateAssetMenu(fileName = "New Encounter", menuName = "Encounter")]
 public class Encounter : ScriptableObject
 {
