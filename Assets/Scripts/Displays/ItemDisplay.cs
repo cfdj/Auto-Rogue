@@ -7,7 +7,7 @@ using UnityEngine.UI;
  * Drag and Droppable onto Characters, Inventories and Shops
  * If dropped in an invalid location, will snap back
  */
-public class ItemDisplay : MonoBehaviour, IDragHandler, IEndDragHandler
+public class ItemDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Item item;
     public InventoryDisplay inventoryDisplay;
@@ -17,6 +17,10 @@ public class ItemDisplay : MonoBehaviour, IDragHandler, IEndDragHandler
 
     int[] stats;
     public int tier =0;
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        returnPos = transform.localPosition;
+    }
     public void OnDrag(PointerEventData eventData)
     {
         //blocksRaycasts = false;
@@ -59,7 +63,6 @@ public class ItemDisplay : MonoBehaviour, IDragHandler, IEndDragHandler
         c.increaseStats(stats);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         returnPos = transform.localPosition;
@@ -84,10 +87,5 @@ public class ItemDisplay : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         tier += 1;
         outline.enabled = true;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

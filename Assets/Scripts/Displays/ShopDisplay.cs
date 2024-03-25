@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 /*Handles Displaying the shop
- *Next thing for improvement is making slot locations not hard coded but instead determined by Gizmos to help with multi-resolution flexibility
+ *Slot locations now handled by objects within a gridlayout group and panel
 */
 public class ShopDisplay : MonoBehaviour
 {
@@ -17,6 +17,7 @@ public class ShopDisplay : MonoBehaviour
     private bool firstTime = true;
 
     public Text restockLabel;
+    public List<Image> slotHolders;
     void Awake()
     {
         if (firstTime)
@@ -25,12 +26,11 @@ public class ShopDisplay : MonoBehaviour
             shop.display = this;
             currentItems = new List<ItemDisplay>();
             slotLocations = new List<Vector3>();
-            slotLocations.Add(new Vector3(110, 25, 0));//Changing this
-            slotLocations.Add(new Vector3(162, 25, 0));
-            slotLocations.Add(new Vector3(110, -29, 0));
-            slotLocations.Add(new Vector3(162, -29, 0));
-            slotLocations.Add(new Vector3(110, -83, 0));
-            slotLocations.Add(new Vector3(162, -83, 0));
+            foreach (Image s in slotHolders) //Given this functionality is probably going to replicated in 3 places, it seems potentially prime for moving to a class of its own
+            {
+                slotLocations.Add(s.rectTransform.localPosition);
+                s.color = Color.clear;
+            }
             Restock();
             firstTime = false;
         }
@@ -43,7 +43,7 @@ public class ShopDisplay : MonoBehaviour
         foreach(Item i in shop.currentItems){
             currentItems.Add(Instantiate(itemPrefab, slotLocations[numItems], Quaternion.identity));
             currentItems[numItems].gameObject.transform.SetParent(shopPanel.transform, false);
-            currentItems[numItems].returnPos = slotLocations[numItems];
+            //currentItems[numItems].returnPos = currentItems[numItems].gameObject.transform.position;
             currentItems[numItems].setItem(i);
             numItems += 1;
         }

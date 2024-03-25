@@ -23,10 +23,10 @@ MonoBehaviour:
   totalAttack: 5
   totalMana: 5
   totalMagic: 5
-  totalGains: 2
-  curHealth: 0
-  curAttack: 10
-  curMana: 5
+  totalGains: 0
+  curHealth: 5
+  curAttack: 5
+  curMana: 15
   curMagic: 5
   weapon:
     name: Wooden Sword
