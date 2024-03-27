@@ -30,7 +30,7 @@ public class Item : ScriptableObject
 
     public int[] getStats()
     {
-        int[] stats = { Health, Attack, Mana, Magic };
+        int[] stats = { Health, Mana, Attack, Magic };
         return stats;
     }
 

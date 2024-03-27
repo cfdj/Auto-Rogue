@@ -28,11 +28,11 @@ public class Character : ScriptableObject
     //these store the amount of each stat a character currently has for use in combat
     public int curHealth, curAttack, curMana, curMagic;
     public Attack weapon;
-    public void increaseStats (int[] stats) // health, attack, mana, magic
+    public void increaseStats (int[] stats) // health, mana,attack, magic
     {
         totalHealth += stats[0];
-        totalAttack += stats[1];
-        totalMana += stats[2];
+        totalMana += stats[1];
+        totalAttack += stats[2];
         totalMagic += stats[3];
         totalGains += 1;
         curHealth = totalHealth;

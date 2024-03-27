@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 /*Archetypes determine available weapons and attacks
  * Characters fit archetypes by having their highest stats match those of the archetype
+ * Currently stores stat requirements as ints because of a potential design change to thresholds rather than highest
 */
 [CreateAssetMenu(fileName = "New Archetype", menuName = "Archetype")]
 public class Archetype : ScriptableObject
@@ -13,7 +14,7 @@ public class Archetype : ScriptableObject
     [SerializeField] int manaReq;
     [SerializeField] int attackReq;
     [SerializeField] int magicReq;
-    
+    public bool encountered = false;
     public int[] getRequirements()
     {
         int[] archetypeStats = { healthReq, manaReq, attackReq, magicReq};
@@ -63,6 +64,7 @@ public class Archetype : ScriptableObject
         if (fitsRequirements(character))
         {
             character.archetype = this;
+            encountered = true;
         }
     }
 

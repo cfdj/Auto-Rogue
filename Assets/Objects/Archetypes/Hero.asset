@@ -18,3 +18,4 @@ MonoBehaviour:
   manaReq: 0
   attackReq: 1
   magicReq: 1
+  encountered: 0
