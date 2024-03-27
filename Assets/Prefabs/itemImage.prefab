@@ -30,9 +30,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -62,6 +63,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -85,10 +87,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f8194f5b21c9d408e6c4339eb69253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  returnPos: {x: 0, y: 0, z: 0}
   item: {fileID: 11400000, guid: 252ae5c83bc5fd740b2d7d40c414e0e5, type: 2}
   inventoryDisplay: {fileID: 0}
   image: {fileID: 3032529522696570921}
-  returnPos: {x: 0, y: 0, z: 0}
+  outline: {fileID: -3205643168633176436}
+  tier: 0
 --- !u!114 &-3205643168633176436
 MonoBehaviour:
   m_ObjectHideFlags: 0

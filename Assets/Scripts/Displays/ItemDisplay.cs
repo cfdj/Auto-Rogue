@@ -7,27 +7,18 @@ using UnityEngine.UI;
  * Drag and Droppable onto Characters, Inventories and Shops
  * If dropped in an invalid location, will snap back
  */
-public class ItemDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class ItemDisplay : DraggableDisplay
 {
     public Item item;
     public InventoryDisplay inventoryDisplay;
     public RawImage image;
-    public Vector3 returnPos; // this is the position the item returns to if it's dropped outside of a drop location
+
     public Outline outline;
 
     int[] stats;
     public int tier =0;
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        returnPos = transform.localPosition;
-    }
-    public void OnDrag(PointerEventData eventData)
-    {
-        //blocksRaycasts = false;
-        transform.position = Input.mousePosition;
-    }
 
-    public void OnEndDrag(PointerEventData eventData)
+    override public void OnEndDrag(PointerEventData eventData)
     {
         //CanvasGroup.blocksRaycasts = true;
         RectTransform invPanel = inventoryDisplay.transform as RectTransform;
