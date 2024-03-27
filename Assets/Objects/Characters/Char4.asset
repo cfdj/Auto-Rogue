@@ -24,7 +24,7 @@ MonoBehaviour:
   totalMana: 5
   totalMagic: 5
   totalGains: 0
-  curHealth: -1
+  curHealth: 5
   curAttack: 5
   curMana: 5
   curMagic: 5
