@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 /*Used as a base class for items which can be dragged around the UI.
  * This is because of shared functionality between Weapon Displays and Item displays
+ * Does not have a default ability to be dropped somewhere, will always return to starting position when dropped
  */
 public class DraggableDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {

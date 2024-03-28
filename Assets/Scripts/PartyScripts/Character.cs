@@ -57,4 +57,13 @@ public class Character : ScriptableObject
         curMana = totalMana;
         curMagic = totalMagic;
     }
+    //Added to support having no weapon equipped
+    public Attack getWeapon()
+    {
+        if(weapon == null)
+        {
+            return new Attack("Fists", null, 0.5f);
+        }
+        return weapon;
+    }
 }

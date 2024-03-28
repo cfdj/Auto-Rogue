@@ -72,10 +72,11 @@ public class Adventure : ScriptableObject
         Encounter current = encounters[progress];
         foreach (Character c in characters)
         {
-            log.AddLog(c.name + " attacks with a " + c.weapon.name);
+            Attack currentWeapon = c.getWeapon();
+            log.AddLog(c.name + " attacks with a " + currentWeapon.name);
             if (!current.FinishedEncounter() &&c.curHealth >0)
             {
-                current.Damage(c.weapon, c.curAttack, c.curMana);
+                current.Damage(currentWeapon, c.curAttack, c.curMana);
                 
             }
         }
